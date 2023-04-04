@@ -7,7 +7,7 @@ from src.database.db import get_db
 from src.schemas import ContactResponse
 from src. repository import search as repository_contacts
 
-search = APIRouter(prefix="/contacts/search", tags=['search'])
+search = APIRouter(prefix="/api/search", tags=['search'])
 
 
 @search.get("/firstname/{firstname}", response_model=ContactResponse)

@@ -7,13 +7,13 @@ Base = declarative_base()
 
 class Contact(Base):
     __tablename__ = "contacts"
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True)
     firstname = Column(String(50), index=True)
     lastname = Column(String(50), index=True)
-    email = Column(String(50), unique=True, index=True)
-    phone = Column(String(15), unique=True, index=True)
-    birthday = Column(Date, nullable=True)
-    additional_info = Column(String(150), default="")
+    email = Column(String, unique=True, index=True, nullable=False)
+    phone = Column(String(15), unique=True, index=True, nullable=False)
+    birthday = Column(Date, default=func.now())
+    additional_info = Column(String(150), nullable=True)
     is_favorite = Column(Boolean, default=False)
     created_at = Column(DateTime, default=func.now())
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
